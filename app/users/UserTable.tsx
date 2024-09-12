@@ -11,7 +11,7 @@ export default async function UserTable({
 }: {
   sortOrder: "name" | "email";
 }) {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+  const res = await fetch(process.env.NEXTAUTH_URL + "/api/users", {
     cache: "no-cache",
   });
   const users: User[] = await res.json();
